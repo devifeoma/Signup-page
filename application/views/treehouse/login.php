@@ -1,40 +1,3 @@
-<?php
-if (isset($_POST ['claim your free trial'])) {
-	//echo "yes we got it";
-	$firstname = $_POST['firstname'];
-	$lastname = $_POST['lastname'];
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-
-$connection = mysqli_connect('localhost','root','','login');
-if ($connection) {
-	echo "Login Successfull";
-}else{
-	die("Wrong username or password") ;
-}
-
-$query = "INSERT INTO users(firstname,lastname,username,password)";
-$query .= "VALUES ('$firstname','$lastname','$password','$password')";
-
-$result = mysqli_query($connection,$query);
-
-if (!$result) {
-	die('query failed' . mysqli_error());
-}
-
-
-	//if ($username && $password ) {
-		//echo $username;
-		//echo $password;
-	//}else{
-		//echo "No";
-	//}
-
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,8 +23,29 @@ if (!$result) {
 	  		margin-bottom: 25px;
 	  		padding: 0px 10px 3px 10px;
 	  		text-decoration: none;
-	  		
+	  	}
+	  	.form-box{
+	  		background-color: white;
+	  		border:13px solid;
+  			border-radius: 10px;
+  			border-color: white;
+	  	}
+	  	.header{
+	  		background-color:#22569f; 
+	  		display: block;
+  			width: 100%;
+  			height: 90px;
+  			border:13px solid;
+  			border-radius: 5px;
+  			border-color: #22569f;
+  			text-align: center;
+  			color:white;
+  			padding-top: 30px;
+  			border-width: 100%;
+  			font-family: Lucida  Handwriting;
+	  	}	
   	</style>
+	  	
 </head>
 
 <body>
@@ -85,19 +69,17 @@ if (!$result) {
 
 
 	<div class="container">
-		<div class=" container col-md-6 ">
-			<p><h2>Learn Web Design, </h2></p>
+		<div class="row container-fluid  col-md-6 " style="font-family: 'Lato'; font-size: 27px !important; color: white;">
+			<p><h2 >Learn Web Design, </h2></p>
 			<p><h2>coding and much more</h2></p>
 			<p><h4>Treehouse offers a 7-day free trial to our course library! Choose from 1,000s of hours of content,
 			 from JavaScript to Python to iOS. Learn to code and get the skills you need to launch a new career.<h4></p>
 		</div>
 
-		
-		<div class="container-fluid col-md-6 jumbotron" style="margin-top: 0px !important; margin-left: 0px !important">
-				<div style="background: red; margin-top: 0px !important">
-					<span>Get Started Today!</span>
-				</div>
-
+	
+		<div class="row container col-md-6 form-box" style="margin-top: 0px !important; margin-left: 0px !important">
+				
+			<p class="header">Get Started Today!</p>
 			<form class="" action="<?= base_url()?>index.php/register" method="POST">
 				<div class="col-md-6 col-sm-6 col-xs-4">
 					<div class="form-group">
